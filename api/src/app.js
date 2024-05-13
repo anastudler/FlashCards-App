@@ -1,12 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
+const router = require("./routes/index");
 
 const app = express();
 
 app.use(morgan("dev"));
-app.use((req, res, next) => {
-  console.log("First middleware");
-  next();
-});
+
+app.use(router);
 
 module.exports = app;
