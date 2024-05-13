@@ -1,25 +1,22 @@
 const { Router } = require("express");
+const {
+  getAllCards,
+  getCardById,
+  createCard,
+  updateCard,
+  deleteCard,
+} = require("../handlers/cardsHandlers");
 
 const cardsRouter = Router();
 
-cardsRouter.get("/", (req, res) => {
-  res.status(200).send("All cards");
-});
+cardsRouter.get("/", getAllCards);
 
-cardsRouter.get("/:id", (req, res) => {
-  res.status(200).send("Card detail");
-});
+cardsRouter.get("/:id", getCardById);
 
-cardsRouter.post("/", (req, res) => {
-  res.status(201).send("Create card");
-});
+cardsRouter.post("/", createCard);
 
-cardsRouter.put("/:id", (req, res) => {
-  res.status(200).send("Update card");
-});
+cardsRouter.put("/:id", updateCard);
 
-cardsRouter.delete("/:id", (req, res) => {
-  res.status(200).send("Delete card");
-});
+cardsRouter.delete("/:id", deleteCard);
 
 module.exports = cardsRouter;
